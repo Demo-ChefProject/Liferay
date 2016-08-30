@@ -5,7 +5,6 @@ remote_file 'C:\NC4\liferay-base-install-6.1.30.zip' do
   notifies :run, 'powershell_script[Unzip Apache package]', :immediately
 end
 
-
 powershell_script 'Unzip Apache package' do
   guard_interpreter :powershell_script
   code <<-EOH
