@@ -1,19 +1,19 @@
 
-remote_file 'C:\NC4\liferay-base-install-6.1.30.zip' do
+remote_file 'C:\liferay\liferay-base-install-6.1.30.zip' do
   source 'http://ec2-54-175-158-124.compute-1.amazonaws.com/repository/Rigil/liferay-base-install-6.1.30.zip'
   action :create
   notifies :run, 'powershell_script[Unzip Apache package]', :immediately
 end
 
-=begin
+
 powershell_script 'Unzip Apache package' do
   guard_interpreter :powershell_script
   code <<-EOH
-    powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory(C:\NC4\liferay-base-install-6.1.30.zip, C:\NC4)}"
+    powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory(C:\liferay\liferay-base-install-6.1.30.zip, C:\liferay)}"
   EOH
-  notifies :run, 'powershell_script[Remove logs]', :immediately
+  #notifies :run, 'powershell_script[Remove logs]', :immediately
 end
-
+=begin
 powershell_script 'Remove logs' do
   guard_interpreter :powershell_script
   code <<-EOH
