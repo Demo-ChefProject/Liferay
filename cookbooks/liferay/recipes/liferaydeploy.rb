@@ -16,19 +16,19 @@ end
 
 powershell_script 'Remove logs' do
   guard_interpreter :powershell_script
-  #code <<-EOH
+  code <<-EOH
     Remove-Item C:\liferay\MC3\logs\* -recurse
-  #EOH
+  EOH
   #only_if do Dir.exist? C:NC4/MC3/logs
-  #notifies :run, 'powershell_script[Remove log,error,temp in tomcat]', :immediately
+  notifies :run, 'powershell_script[Remove log,error,temp in tomcat]', :immediately
 end
-=begin
+
 powershell_script 'Remove log,error,temp in tomcat' do
   guard_interpreter :powershell_script
   code <<-EOH
-    Remove-Item C:NC4/MC3/Tomcat/logs* -recurse
-    Remove-Item C:NC4/MC3/Tomcat/work* -recurse
-    Remove-Item C:NC4/MC3/Tomcat/temp* -recurse
+    Remove-Item C:\liferay\MC3\tomcat\logs\* -recurse
+    Remove-Item C:\liferay\MC3\tomcat\work\* -recurse
+    Remove-Item C:\liferay\MC3\tomcat\temp\* -recurse
   EOH
 end
-=end
+
