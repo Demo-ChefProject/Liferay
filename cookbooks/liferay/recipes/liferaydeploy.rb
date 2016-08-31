@@ -1,6 +1,6 @@
 
 remote_file 'C:\NC4\liferay-base-install-6.1.30.zip' do
-  source ''
+  source 'http://54.175.158.124:8081/repository/Rigil/liferay-base-install-6.1.30.zip'
   action :create
   notifies :run, 'powershell_script[Unzip Apache package]', :immediately
 end
