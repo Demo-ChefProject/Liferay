@@ -15,7 +15,7 @@ knife upload cookbooks liferay
 
 
 # Bootstrap a node to its chef server
-#knife bootstrap windows winrm 52.23.166.135 --winrm-user Administrator --winrm-password 'd*G%tc9"&"HLK' --node-name Rigil_node_Windows -r 'role[liferay]' -y
+knife bootstrap windows winrm 52.23.166.135 --winrm-user Administrator --winrm-password 'd*G%tc9"&"HLK' --node-name Rigil_node_Windows -r 'role[liferay]' -y
 
 #Passing credentials stored as a secure string
 $Pass = cat C:\securestring.txt | convertto-securestring
