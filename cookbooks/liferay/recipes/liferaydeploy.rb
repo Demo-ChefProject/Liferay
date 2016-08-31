@@ -1,10 +1,11 @@
 
 remote_file 'C:\NC4\liferay-base-install-6.1.30.zip' do
-  source 'http://54.175.158.124:8081/repository/Rigil/liferay-base-install-6.1.30.zip'
+  source 'http://ec2-54-175-158-124.compute-1.amazonaws.com/repository/Rigil/liferay-base-install-6.1.30.zip'
   action :create
   notifies :run, 'powershell_script[Unzip Apache package]', :immediately
 end
 
+=begin
 powershell_script 'Unzip Apache package' do
   guard_interpreter :powershell_script
   code <<-EOH
@@ -30,3 +31,4 @@ powershell_script 'Remove log,error,temp in tomcat' do
     Remove-Item C:NC4/MC3/Tomcat/temp* -recurse
   EOH
 end
+=end
