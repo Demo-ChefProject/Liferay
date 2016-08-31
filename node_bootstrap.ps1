@@ -2,7 +2,7 @@
 
 #cd ~/home/jenkins/workspace/Chef-apache/
 #cd C:/Users/krithi.gananasekaran/workspace/Chef-Jdk
-cd C:\Jenkins\workspace\Liferay\
+cd C:\Jenkins\workspace\Chef-Liferay1\
 
 #for jdk
 #sudo knife role from file /home/jenkins/workspace/Chef-apache/roles/apache.rb
