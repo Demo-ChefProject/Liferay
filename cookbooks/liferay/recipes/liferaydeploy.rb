@@ -22,7 +22,7 @@ powershell_script 'Remove logs' do
   notifies :run, 'powershell_script[Remove log,error,temp in tomcat]', :immediately
 end
 
-powershell_script 'Remove log,work,temp in tomcat' do
+powershell_script 'Remove log,error,temp in tomcat' do
   guard_interpreter :powershell_script
   code <<-EOH
     Remove-Item C:NC4/MC3/Tomcat/logs* -recurse
