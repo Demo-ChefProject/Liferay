@@ -2,12 +2,12 @@
 
 #cd ~/home/jenkins/workspace/Chef-apache/
 #cd C:/Users/krithi.gananasekaran/workspace/Chef-Jdk
-cd C:\Jenkins\workspace\Chef-Liferay1\
+cd C:\Jenkins\workspace\Chef-Liferay1
 
 #for jdk
 #sudo knife role from file /home/jenkins/workspace/Chef-apache/roles/apache.rb
 #knife role from file C:\Users\krithi.gnanasekaran\workspace\Chef-Jdk\roles\jdkinstall.rb
-knife role from file C:\Jenkins\workspace\Liferay\roles\liferay.json
+knife role from file C:\Jenkins\workspace\Chef-Liferay1\roles\liferay.json
 
 
 # Upload cookbooks into Chef Server
