@@ -11,10 +11,10 @@ end
 powershell_script 'backup current install' do
   guard_interpreter :powershell_script
   code <<-EOH
-    Rename-Item -path "C:\liferay\MC3" -newName "backup"
+    Rename-Item -path "C:\\liferay\\MC3" -newName "backup"
   EOH
-  not_if do Dir.exist?("C:\liferay\MC3") end
-  notifies :run, 'powershell_script[Unzip Apache package]', :immediately
+  not_if do Dir.exist?("C:\\liferay\\MC3") end
+  notifies :run, 'powershell_script[Unzip Liferay package]', :immediately
 end
 
 powershell_script 'Unzip Liferay package' do
