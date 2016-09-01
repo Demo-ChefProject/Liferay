@@ -4,7 +4,17 @@
 remote_file 'C:\liferay\liferay-base-install-6.1.30.zip' do
   source 'http://ec2-54-175-158-124.compute-1.amazonaws.com/repository/Rigil/liferay-base-install-6.1.30.zip'
   action :create
-  #notifies :run, 'powershell_script[Unzip Liferay package]', :immediately
+  notifies :run, 'powershell_script[Unzip Liferay package]', :immediately
+end
+
+#Backup the current install
+powershell_script 'backup current install' do
+  guard_interpreter :powershell_script
+  code <<-EOH
+    Rename-Item -path "C:\liferay\MC3" -newName "backup"
+  EOH
+  not_if do Dir.exist?("C:\liferay\MC3") end
+  notifies :run, 'powershell_script[Unzip Apache package]', :immediately
 end
 
 powershell_script 'Unzip Liferay package' do
