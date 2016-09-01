@@ -12,7 +12,7 @@ powershell_script 'Unzip Liferay package' do
   code <<-EOH
     powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory('C:\\liferay\\liferay-base-install-6.1.30.zip', 'C:\\liferay\\'); }"
   EOH
-  #notifies :run, 'powershell_script[Remove logs]', :immediately
+  notifies :run, 'powershell_script[Remove logs]', :immediately
 end
 
 powershell_script 'Remove logs' do
@@ -21,9 +21,9 @@ powershell_script 'Remove logs' do
     Remove-Item C:\\liferay\\MC3\\logs\\* -recurse
   EOH
   #only_if do Dir.exist? 'C://liferay//MC3//logs'
-  #notifies :run, 'powershell_script[Remove log,error,temp in tomcat]', :immediately
+  notifies :run, 'powershell_script[Remove log,error,temp in tomcat]', :immediately
 end
-=begin
+
 powershell_script 'Remove log,error,temp in tomcat' do
   guard_interpreter :powershell_script
   code <<-EOH
@@ -32,4 +32,4 @@ powershell_script 'Remove log,error,temp in tomcat' do
     Remove-Item C:\liferay\MC3\tomcat\temp\* -recurse
   EOH
 end
-=end
+
