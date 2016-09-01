@@ -4,15 +4,15 @@ apache_package_name = node['nc4']['liferay']['package']
 remote_file 'C:\liferay\liferay-base-install-6.1.30.zip' do
   source 'http://ec2-54-175-158-124.compute-1.amazonaws.com/repository/Rigil/liferay-base-install-6.1.30.zip'
   action :create
-  notifies :run, 'powershell_script[Unzip Liferay package]', :immediately
+  #notifies :run, 'powershell_script[Unzip Liferay package]', :immediately
 end
 
 
 powershell_script 'Unzip Liferay package' do
-  #guard_interpreter :powershell_script
-  #code <<-EOH
+  guard_interpreter :powershell_script
+  code <<-EOH
     powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory('#{liferay_install_loc}/#{liferay_package_name}', '#{liferay_install_loc}'); }"
-  #EOH
+  EOH
   #notifies :run, 'powershell_script[Remove logs]', :immediately
 end
 =begin
