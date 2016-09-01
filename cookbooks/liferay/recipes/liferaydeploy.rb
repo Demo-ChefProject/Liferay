@@ -1,7 +1,7 @@
-apache_install_loc = node['nc4']['liferay']['install_location']
-apache_package_name = node['nc4']['liferay']['package']
+liferay_install_loc = node['nc4']['liferay']['install_location']
+liferay_package_name = node['nc4']['liferay']['package']
 
-remote_file 'C:\liferay\liferay-base-install-6.1.30.zip' do
+remote_file "#{liferay_install_loc}/#{liferay_package_name}" do
   source 'http://ec2-54-175-158-124.compute-1.amazonaws.com/repository/Rigil/liferay-base-install-6.1.30.zip'
   action :create
   #notifies :run, 'powershell_script[Unzip Liferay package]', :immediately
