@@ -28,8 +28,8 @@ powershell_script 'Remove log,error,temp in tomcat' do
   guard_interpreter :powershell_script
   code <<-EOH
     Remove-Item C:\\liferay\\MC3\\tomcat\logs\\* -recurse
-    Remove-Item C:\\liferay\MC3\\tomcat\\work\\* -recurse
-    Remove-Item C:\\liferay\MC3\\tomcat\\temp\\* -recurse
+    Remove-Item C:\\liferay\\MC3\\tomcat\\work\\* -recurse
+    Remove-Item C:\\liferay\\MC3\\tomcat\\temp\\* -recurse
   EOH
 end
 
