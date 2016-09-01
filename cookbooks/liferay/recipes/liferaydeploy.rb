@@ -20,7 +20,7 @@ powershell_script 'Remove logs' do
     Remove-Item C:\liferay\MC3\logs\* -recurse
   EOH
   #only_if do Dir.exist? C:NC4/MC3/logs
-  #notifies :run, 'powershell_script[Remove log,error,temp in tomcat]', :immediately
+  
 end
 
 powershell_script 'Remove log,error,temp in tomcat' do
