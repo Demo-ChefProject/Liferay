@@ -7,7 +7,6 @@ remote_file 'C:\liferay\liferay-base-install-6.1.30.zip' do
   #notifies :run, 'powershell_script[Unzip Liferay package]', :immediately
 end
 
-
 powershell_script 'Unzip Liferay package' do
   guard_interpreter :powershell_script
   code <<-EOH
@@ -15,7 +14,7 @@ powershell_script 'Unzip Liferay package' do
   EOH
   #notifies :run, 'powershell_script[Remove logs]', :immediately
 end
-=begin
+
 powershell_script 'Remove logs' do
   guard_interpreter :powershell_script
   code <<-EOH
@@ -24,7 +23,7 @@ powershell_script 'Remove logs' do
   #only_if do Dir.exist? 'C://liferay//MC3//logs'
   #notifies :run, 'powershell_script[Remove log,error,temp in tomcat]', :immediately
 end
-
+=begin
 powershell_script 'Remove log,error,temp in tomcat' do
   guard_interpreter :powershell_script
   code <<-EOH
