@@ -18,7 +18,7 @@ remote_file "#{liferay_install_loc}/#{liferay_package_name}" do
   action :create
   notifies :run, 'powershell_script[Unzip Liferay package]', :immediately
 end
-=begin
+
 #Backup the current install
 powershell_script 'backup current install' do
   guard_interpreter :powershell_script
@@ -28,16 +28,13 @@ powershell_script 'backup current install' do
   not_if do Dir.exist?("#{liferay_work_dir}-#{liferay_backup_touch}") end
   notifies :run, 'powershell_script[Unzip Liferay package]', :immediately
 end
-=end
+
 powershell_script 'Unzip Liferay package' do
   guard_interpreter :powershell_script
   code <<-EOH
-  trap
-{
-    write-output $_
+ 
       powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory('#{liferay_install_loc}/#{liferay_package_name}', '#{liferay_install_loc}');}"
-  exit 1
-}
+
  EOH
   notifies :run, 'powershell_script[Remove logs]', :immediately
 end
