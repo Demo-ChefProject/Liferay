@@ -60,8 +60,12 @@ end
 powershell_script 'Remove log,error,temp in tomcat' do
   guard_interpreter :powershell_script
   code <<-EOH
+     trap
+{
     Remove-Item #{liferay_tomcatwork_dir}/logs/* -recurse
     Remove-Item #{liferay_tomcatwork_dir}/work/* -recurse
     Remove-Item #{liferay_tomcatwork_dir}/temp/* -recurse
+          exit 1
+}
   EOH
 end
