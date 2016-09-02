@@ -2,6 +2,7 @@ liferay_install_loc = node['nc4']['liferay']['install_location']
 liferay_package_name = node['nc4']['liferay']['package']
 liferay_work_dir = "#{liferay_install_loc}/MC3"
 liferay_backup_touch = node['ohai_time']
+liferay_tomcatwork_dir = "#{liferay_install_loc}/MC3/tomcat"
 
 #Check if install location exists
 powershell_script 'Create Install Location' do
@@ -47,15 +48,15 @@ powershell_script 'Remove logs' do
   code <<-EOH
     Remove-Item #{liferay_work_dir}/logs/* -recurse
   EOH
-  only_if do Dir.exist?("#{liferay_work_dir}/logs")
+  #only_if do Dir.exist?("#{liferay_work_dir}/logs")
   #notifies :run, 'powershell_script[Remove log,error,temp in tomcat]', :immediately
 end
 
 powershell_script 'Remove log,error,temp in tomcat' do
   guard_interpreter :powershell_script
   code <<-EOH
-    Remove-Item C:\\liferay\\MC3\\tomcat\logs\\* -recurse
-    Remove-Item C:\\liferay\\MC3\\tomcat\\work\\* -recurse
-    Remove-Item C:\\liferay\\MC3\\tomcat\\temp\\* -recurse
+    Remove-Item #{liferay_tomcatwork_dir}/logs/* -recurse
+    Remove-Item #{liferay_tomcatwork_dir}/work/* -recurse
+    Remove-Item #{liferay_tomcatwork_dir}/temp/* -recurse
   EOH
 end
