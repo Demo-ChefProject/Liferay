@@ -1,5 +1,7 @@
 liferay_install_loc = node['nc4']['liferay']['install_location']
 liferay_package_name = node['nc4']['liferay']['package']
+liferay_work_dir = "#{liferay_install_loc}/MC3"
+liferay_backup_touch = node['ohai_time']
 
 #Check if install location exists
 powershell_script 'Create Install Location' do
@@ -21,9 +23,9 @@ end
 powershell_script 'backup current install' do
   guard_interpreter :powershell_script
   code <<-EOH
-    Rename-Item -path "C:\\liferay\\MC3" -newName "backup"
+    Rename-Item -path #{liferay_work_dir} -newName "#{liferay_work_dir}-#{liferay_backup_touch}"
   EOH
-  not_if do Dir.exist?("C:\\liferay\\MC3") end
+  not_if do Dir.exist?("#{liferay_work_dir}-#{liferay_backup_touch}") end
   notifies :run, 'powershell_script[Unzip Liferay package]', :immediately
 end
 
