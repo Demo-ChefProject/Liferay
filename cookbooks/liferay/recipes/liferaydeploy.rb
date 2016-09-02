@@ -1,7 +1,17 @@
 liferay_install_loc = node['nc4']['liferay']['install_location']
 liferay_package_name = node['nc4']['liferay']['package']
 
-remote_file 'C:\liferay\liferay-base-install-6.1.30.zip' do
+#Check if install location exists
+powershell_script 'Create Install Location' do
+  guard_interpreter :powershell_script
+  code <<-EOH
+    New-Item -ItemType Directory -Path #{liferay_install_loc}
+  EOH
+  not_if do Dir.exist?("#{liferay_install_loc}") end
+end
+
+#Download the Liferay zip file
+remote_file "#{liferay_install_loc}/#{liferay_package_name}" do
   source 'http://ec2-54-175-158-124.compute-1.amazonaws.com/repository/Rigil/liferay-base-install-6.1.30.zip'
   action :create
   notifies :run, 'powershell_script[Unzip Liferay package]', :immediately
