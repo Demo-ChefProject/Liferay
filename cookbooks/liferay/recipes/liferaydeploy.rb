@@ -26,7 +26,7 @@ powershell_script 'backup current install' do
   code <<-EOH
     Rename-Item -path #{liferay_work_dir} -newName "#{liferay_work_dir}-#{liferay_backup_touch}"
   EOH
-  not_if do Dir.exist?("#{liferay_work_dir}-#{liferay_backup_touch}") end
+#  not_if do Dir.exist?("#{liferay_work_dir}-#{liferay_backup_touch}") end
   notifies :run, 'powershell_script[Unzip Liferay package]', :immediately
 end
 
