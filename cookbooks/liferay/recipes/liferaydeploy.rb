@@ -30,13 +30,8 @@ end
 powershell_script 'Unzip Liferay package' do
   guard_interpreter :powershell_script
   code <<-EOH
-  trap
-{
-    write-output $_
-      powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory('#{liferay_install_loc}/#{liferay_package_name}', '#{liferay_install_loc}');}"
-  exit 1
-}
-   EOH
+    powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory('#{liferay_install_loc}/#{liferay_package_name}', '#{liferay_install_loc}');}"
+ EOH
   notifies :run, 'powershell_script[Remove logs]', :immediately
 end
 
