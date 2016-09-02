@@ -46,7 +46,12 @@ end
 powershell_script 'Remove logs' do
   guard_interpreter :powershell_script
   code <<-EOH
+   trap
+{
+    write-output $_
     Remove-Item #{liferay_work_dir}/logs/* -recurse
+      exit 1
+}
   EOH
   #only_if do Dir.exist?("#{liferay_work_dir}/logs")
   #notifies :run, 'powershell_script[Remove log,error,temp in tomcat]', :immediately
