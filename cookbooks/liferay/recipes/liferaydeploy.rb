@@ -15,7 +15,7 @@ end
 
 #Download the Liferay zip file
 remote_file "#{liferay_install_loc}/#{liferay_package_name}" do
-  source 'http://ec2-54-175-158-124.compute-1.amazonaws.com/repository/Rigil/liferay-base-install-6.1.30.zip'
+  source 'http://54.175.158.124:8081/repository/Rigil/liferay-base-install-6.1.30.zip'
   action :create
   notifies :run, 'powershell_script[backup current install]', :immediately
 end
