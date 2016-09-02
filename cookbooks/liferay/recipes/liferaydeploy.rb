@@ -21,15 +21,15 @@ remote_file "#{liferay_install_loc}/#{liferay_package_name}" do
 end
 
 #Backup the current install
-#powershell_script 'backup current install' do
-#  guard_interpreter :powershell_script
-#  code <<-EOH
+powershell_script 'backup current install' do
+  guard_interpreter :powershell_script
+  code <<-EOH
 #    Rename-Item -path #{liferay_work_dir} -newName "#{liferay_work_dir}-#{liferay_backup_touch}"
-#  EOH
+  EOH
 #  only_if do Dir.exist?("#{liferay_work_dir}") end
 #  not_if do Dir.exist?("#{liferay_work_dir}-#{liferay_backup_touch}") end
 #  notifies :run, 'powershell_script[Unzip Liferay package]', :immediately
-#end
+end
 
 powershell_script 'Unzip Liferay package' do
   guard_interpreter :powershell_script
