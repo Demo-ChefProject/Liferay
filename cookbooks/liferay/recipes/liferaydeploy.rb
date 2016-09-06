@@ -1,3 +1,4 @@
+liferay_download_from = "#{node['nc4']['nexus']['url']}/#{node['nc4']['apache-httpd-32']['version']}/#{node['nc4']['liferay']['package']}"
 liferay_install_loc = node['nc4']['liferay']['install_location']
 liferay_package_name = node['nc4']['liferay']['package']
 liferay_work_dir = "#{liferay_install_loc}/MC3"
@@ -15,7 +16,8 @@ end
 
 #Download the Liferay zip file
 remote_file "#{liferay_install_loc}/#{liferay_package_name}" do
-  source 'http://54.175.158.124:8081/repository/Rigil/liferay-base-install-6.1.30.zip'
+  #source 'http://54.175.158.124:8081/repository/Rigil/liferay-base-install-6.1.30.zip'
+  source liferay_download_from
   action :create
   notifies :run, 'powershell_script[backup current install]', :immediately
 end
