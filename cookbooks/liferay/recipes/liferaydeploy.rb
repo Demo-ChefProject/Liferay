@@ -46,7 +46,7 @@ powershell_script 'Remove logs' do
     Remove-Item #{liferay_work_dir}/logs/* -recurse
   EOH
   #only_if do Dir.exist?("#{liferay_work_dir}/logs")
-  notifies :run, 'powershell_script[Remove log,error,temp in tomcat]', :immediately
+  #notifies :run, 'powershell_script[Remove log,error,temp in tomcat]', :immediately
 end
 
 powershell_script 'Remove log,error,temp in tomcat' do
