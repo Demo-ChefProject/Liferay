@@ -1,4 +1,4 @@
-liferay_download_from = "#{node['nc4']['nexus']['url']}/#{node['nc4']['apache-httpd-32']['version']}/#{node['nc4']['liferay']['package']}"
+liferay_download_from = "#{node['nc4']['nexus']['url']}/#{node['nc4']['liferay1']['version']}/#{node['nc4']['liferay']['package']}"
 liferay_install_loc = node['nc4']['liferay']['install_location']
 liferay_package_name = node['nc4']['liferay']['package']
 liferay_work_dir = "#{liferay_install_loc}/MC3"
