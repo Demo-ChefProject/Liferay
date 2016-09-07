@@ -44,15 +44,16 @@ Just include `liferay` in your node's `run_list`:
 
 ## What does this cookbook do?
 
-TODO: (optional) If this is a public cookbook, detail the process for contributing. If this is a private cookbook, remove this section.
+ - Copy Liferay to target node from Nexus repo 
+ - Check if the install location exists
+ - Download the zip file
+ - Take backup of the current install
+ - Unzip Liferay zip in target location
+ - Remove the Logs/* files
+ - Inside tomcat remove the logs/* files
+ - Inside tomcat remove the work/* files
+ - Inside tomcat remove the temp/* files
 
-e.g.
-1. Fork the repository on Github
-2. Create a named feature branch (like `add_component_x`)
-3. Write your change
-4. Write tests for your change (if applicable)
-5. Run the tests, ensuring they all pass
-6. Submit a Pull Request using Github
 
 ## On a more detail oriented scenario about how the code works (with the packages used and on the coding front)
 
