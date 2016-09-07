@@ -1,18 +1,14 @@
 # liferay Cookbook
 
-TODO: Enter the cookbook description here.
+This cookbook installs and configures liferay for Mission Ceter project.
 
-e.g.
-This cookbook makes your favorite breakfast sandwich.
 
 ## Requirements
 
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
 
-e.g.
 ### Platforms
 
-- SandwichOS
+- Windows
 
 ### Chef
 
@@ -20,29 +16,13 @@ e.g.
 
 ### Cookbooks
 
-- `toaster` - liferay needs toaster to brown your bagel.
+- `liferay` - liferay cookbook to install for Mission Center.
 
 ## Attributes
 
-TODO: List your cookbook attributes here.
+check attribites folder for all the defined variables.
 
-e.g.
-### liferay::default
 
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['liferay']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
-  </tr>
-</table>
 
 ## Usage
 
@@ -62,7 +42,7 @@ Just include `liferay` in your node's `run_list`:
 }
 ```
 
-## Contributing
+## What does this cookbook do?
 
 TODO: (optional) If this is a public cookbook, detail the process for contributing. If this is a private cookbook, remove this section.
 
@@ -74,7 +54,7 @@ e.g.
 5. Run the tests, ensuring they all pass
 6. Submit a Pull Request using Github
 
-## License and Authors
+## On a more detail oriented scenario about how the code works (with the packages used and on the coding front)
 
 Authors: TODO: List authors
 
