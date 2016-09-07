@@ -32,6 +32,7 @@ powershell_script 'backup current install' do
 #  notifies :run, 'powershell_script[Unzip Liferay package]', :immediately
 end
 
+=begin
 powershell_script 'Unzip Liferay package' do
   guard_interpreter :powershell_script
   code <<-EOH
@@ -40,6 +41,13 @@ powershell_script 'Unzip Liferay package' do
  EOH
   notifies :run, 'powershell_script[Remove logs]', :immediately
 end
+=end
+
+#Unzip the installer
+execute "unzip package" do
+  command "\"C:\\Program Files\\7-Zip\\7z.exe\" x \"#{liferay_install_loc}\\#{liferay_package_name}\" -o\"#{liferay_install_loc}\" -y"
+end
+
 
 powershell_script 'Remove logs' do
   guard_interpreter :powershell_script
