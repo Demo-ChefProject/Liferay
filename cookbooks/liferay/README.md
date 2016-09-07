@@ -56,7 +56,46 @@ Just include `liferay` in your node's `run_list`:
  - Inside tomcat remove the temp/* files
 ```
 
-## On a more detail oriented scenario about how the code works (with the packages used and on the coding front)
+## Further details about how the code works (with the packages used and on the coding front)
 
-Authors: TODO: List authors
+## For checking if install location exists
+ A powershell script is used for this purpose. What this piece of code typically does is, it checks if the install location exists else exit the location.
+ 
+## Then the Liferay zip file is downloaded into that location.
+ `remote_file` (chef code) is used for this purpose
 
+## What it does?
+ A remote_file resource block manages files by using files that exist remotely.
+
+- SYNTAX of remote_file
+```
+remote_file '/var/www/customers/public_html/index.php' do
+  source 'http://somesite.com/index.php'
+  owner 'web_admin'
+  group 'web_admin'
+  mode '0755'
+  action :create
+end
+```
+- Link to learn more on this topic of remote_file - https://docs.chef.io/resource_remote_file.html
+
+## Backup the current install
+ A powershell script is used for this purpose.
+ 
+## To unzip Liferay zip into the target location
+ We use 7 zip for this purpose.
+
+## In order to remove the Logs/* files
+ For the removal of the Log files we make use of `Remove-Item` in powershell
+
+## What it does?
+ The Remove-Item cmdlet does exactly what the name implies: it enables you to get rid of things once and for all.
+
+- SYNTAX of Remove_Item
+```
+Remove-Item File_Path\* -recurse
+```
+- Link to learn more on Remove_Item - https://technet.microsoft.com/en-us/library/ee176938.aspx
+
+## In order to remove log,error,temp in tomcat
+ Again we make use to `Remove-Item` in powershell for this purpose.
