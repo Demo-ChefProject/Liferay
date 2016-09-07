@@ -44,6 +44,7 @@ Just include `liferay` in your node's `run_list`:
 
 ## What does this cookbook do?
 
+```
  - Copy Liferay to target node from Nexus repo 
  - Check if the install location exists
  - Download the zip file
@@ -53,7 +54,7 @@ Just include `liferay` in your node's `run_list`:
  - Inside tomcat remove the logs/* files
  - Inside tomcat remove the work/* files
  - Inside tomcat remove the temp/* files
-
+```
 
 ## On a more detail oriented scenario about how the code works (with the packages used and on the coding front)
 
