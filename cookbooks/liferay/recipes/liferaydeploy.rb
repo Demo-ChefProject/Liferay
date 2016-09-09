@@ -32,16 +32,6 @@ powershell_script 'backup current install' do
 #  notifies :run, 'powershell_script[Unzip Liferay package]', :immediately
 end
 
-=begin
-powershell_script 'Unzip Liferay package' do
-  guard_interpreter :powershell_script
-  code <<-EOH
-    Rename-Item -path #{liferay_work_dir} -newName "#{liferay_work_dir}-#{liferay_backup_touch}"
-    powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory('#{liferay_install_loc}/#{liferay_package_name}', '#{liferay_install_loc}'); }"
- EOH
-  notifies :run, 'powershell_script[Remove logs]', :immediately
-end
-=end
 
 #Unzip the installer
 execute "unzip package" do
@@ -54,8 +44,6 @@ powershell_script 'Remove logs' do
   code <<-EOH
     Remove-Item #{liferay_work_dir}/logs/* -recurse
   EOH
-  #only_if do Dir.exist?("#{liferay_work_dir}/logs")
-  #notifies :run, 'powershell_script[Remove log,error,temp in tomcat]', :immediately
 end
 
 powershell_script 'Remove log,error,temp in tomcat' do
