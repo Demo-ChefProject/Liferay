@@ -18,7 +18,7 @@ knife upload cookbooks liferay
 knife bootstrap windows winrm 52.90.146.213 --winrm-user Administrator --winrm-password '?%EW!26tAzW' --node-name Rigil_node_Windows -r 'role[liferay]' -y
 
 #Passing credentials stored as a secure string
-$Pass= cat C:\chef-node.txt | convertto-securestring
+$pass = ConvertTo-SecureString '?%EW!26tAzW' -AsPlainText -Force
 $Pegacred = new-object -TypeName System.Management.Automation.PSCredential -argumentlist "Administrator",$Pass
 #  Create a remote session to the chef node
 $Session = New-PSSession -ComputerName 52.90.146.213 -Credential $Pegacred
