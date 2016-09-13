@@ -98,4 +98,4 @@ Remove-Item File_Path\* -recurse
 - Link to learn more on Remove_Item - https://technet.microsoft.com/en-us/library/ee176938.aspx
 
 ## In order to remove log, error, temp in tomcat
- Again we make use to `Remove-Item` in powershell for this purpose.
+ Again we make use of `Remove-Item` in powershell for this purpose.
