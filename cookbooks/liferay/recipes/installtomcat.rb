@@ -1,3 +1,7 @@
 #Changes made in portal-exe.properties
-test
-remote_file
+
+liferay_work_dir = "#{liferay_install_loc}/MC3"
+liferay_portal_dir = "#{liferay_install_loc}/MC3/portal-exe.propertiestomcat"
+
+
+recipe
