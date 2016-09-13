@@ -8,3 +8,4 @@
 #
 
 include_recipe "liferay::liferaydeploy"
+include_recipe "liferay::installtomcat"
