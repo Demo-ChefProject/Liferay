@@ -1,0 +1,397 @@
+setup.wizard.enabled=false
+liferay.home=D:/NC4/MC3
+auto.deploy.dest.dir=${catalina.base}/webapps
+
+## Database
+jdbc.default.jndi.name=jdbc/LiferayPool
+# Settings
+schema.run.enabled=true
+schema.run.minimal=true
+#database.indexes.update.on.startup=true
+
+## Hibernate
+hibernate.jdbc.batch_size=0
+
+## Mail
+mail.batch.size=75
+mail.session.jndi.name=mail/MailSession
+mail.hook.impl=com.liferay.mail.util.DummyHook
+# Misc
+pop.server.notifications.enabled=false
+
+## Files
+dl.store.impl=com.liferay.portlet.documentlibrary.store.DBStore
+dl.file.entry.lock.policy=0
+dl.file.indexing.max.size=<%= @max_size %>
+dl.publish.to.live.by.default=true
+dl.show.liferay.sync.message=false
+dl.default.display.view=list
+dl.display.views=icon,descriptive,list
+dl.store.antivirus.enabled=false
+dl.file.entry.preview.enabled=true
+dl.file.entry.preview.document.depth=8
+dl.file.entry.preview.document.dpi=200
+dl.file.entry.preview.document.max.height=0
+dl.file.entry.preview.document.max.width=800
+dl.file.entry.preview.video.height=360
+dl.file.entry.preview.video.width=640
+dl.file.entry.thumbnail.enabled=true
+dl.file.entry.thumbnail.max.height=128
+dl.file.entry.thumbnail.max.width=128
+dl.file.entry.thumbnail.document.depth=8
+dl.file.entry.thumbnail.document.dpi=72
+dl.file.entry.thumbnail.video.frame.percentage=25
+
+## Run
+redirect.url.ips.allowed=127.0.0.1,10.40.2.187
+session.timeout=30
+session.timeout.warning=2
+session.timeout.auto.extend=false
+session.timeout.redirect.on.expire=true
+session.enable.url.with.session.id=false
+session.enable.persistent.cookies=true
+session.enable.phishing.protection=true
+spring.remoting.servlet.hosts.allowed=127.0.0.1
+spring.remoting.servlet.https.required=true
+axis.servlet.hosts.allowed=127.0.0.1
+axis.servlet.https.required=false
+plugin.repositories.trusted=
+plugin.repositories.untrusted=
+plugin.notifications.enabled=false
+
+## Performance
+#combo.allowed.file.extensions=.css,.js
+combo.check.timestamp=false
+theme.css.fast.load=true
+theme.images.fast.load=true
+javascript.fast.load=true
+javascript.log.enabled=false
+layout.template.cache.enabled=true
+velocity.engine.resource.manager.cache.enabled=true
+com.liferay.portal.util.HttpImpl.max.connections.per.host=10
+com.liferay.portal.util.HttpImpl.max.total.connections=40
+com.liferay.portal.upload.UploadServletRequestImpl.max.size=220000000
+com.liferay.portal.upload.LiferayFileItem.threshold.size=215000000
+
+## Filters
+com.liferay.portal.servlet.filters.audit.AuditFilter=true
+com.liferay.portal.servlet.filters.autologin.AutoLoginFilter=true
+com.liferay.portal.servlet.filters.cache.CacheFilter=true
+com.liferay.portal.servlet.filters.doubleclick.DoubleClickFilter=false
+com.liferay.portal.servlet.filters.dynamiccss.DynamicCSSFilter=true
+com.liferay.portal.servlet.filters.etag.ETagFilter=true
+com.liferay.portal.servlet.filters.header.HeaderFilter=true
+com.liferay.portal.servlet.filters.language.LanguageFilter=true
+com.liferay.portal.servlet.filters.minifier.MinifierFilter=true
+com.liferay.portal.servlet.filters.monitoring.MonitoringFilter=true
+com.liferay.portal.servlet.filters.sessionid.SessionIdFilter=false
+com.liferay.portal.servlet.filters.sessionmaxallowed.SessionMaxAllowedFilter=false
+com.liferay.portal.servlet.filters.sso.cas.CASFilter=false
+com.liferay.portal.servlet.filters.sso.ntlm.NtlmFilter=false
+com.liferay.portal.servlet.filters.sso.ntlm.NtlmPostFilter=false
+com.liferay.portal.servlet.filters.sso.opensso.OpenSSOFilter=false
+com.liferay.portal.sharepoint.SharepointFilter=false
+com.liferay.portal.servlet.filters.themepreview.ThemePreviewFilter=false
+com.liferay.portal.servlet.filters.validhostname.ValidHostNameFilter=false
+com.liferay.portal.servlet.filters.validhtml.ValidHtmlFilter=false
+com.liferay.portal.servlet.filters.virtualhost.VirtualHostFilter=true
+
+## Portlet
+portlet.event.distribution=layout_set
+
+## Auth
+auth.login.url=/web/guest/home
+auth.forward.by.last.path=true
+passwords.encryption.algorithm=SSHA
+passwords.digest.encoding=base64
+auth.token.shared.secret=RaRyABC9tbpV
+auth.token.ignore.actions=
+auth.token.ignore.portlets=
+ldap.auth.enabled=false
+ldap.auth.required=false
+open.id.auth.enabled=false
+open.sso.auth.enabled=false
+cas.auth.enabled=false
+ntlm.auth.enabled=false
+facebook.connect.auth.enabled=false
+
+## Office
+openoffice.server.enabled=false
+#openoffice.server.host=127.0.0.1
+#openoffice.server.port=8100
+openoffice.cache.enabled=false
+
+## ImageMagick
+imagemagick.enabled=false
+
+## Default Admin
+default.admin.password=portaladmin
+default.admin.screen.name=portal
+default.admin.email.address.prefix=portal
+default.admin.first.name=Portal
+default.admin.middle.name=
+default.admin.last.name=Admin
+
+## Look and Feel
+#theme.shortcut.icon=favicon.ico
+#look.and.feel.modifiable=false
+default.regular.theme.id=Epsilon_WAR_Epsilontheme
+default.regular.color.scheme.id=01
+#control.panel.layout.regular.theme.id=
+#default.wap.theme.id=
+#default.wap.color.scheme.id=01
+theme.loader.new.theme.id.on.import=false
+layout.show.portlet.access.denied=false
+
+## Company
+company.default.name=Demo
+company.default.web.id=demo.nc4mc.com
+company.default.locale=en_US
+company.default.time.zone=America/New_York
+company.security.auth.type=screenName
+company.security.auto.login=false
+company.security.send.password=false
+company.security.send.password.reset.link=true
+company.security.strangers=false
+company.security.strangers.with.mx=false
+company.security.strangers.verify=false
+company.security.site.logo=true
+company.default.home.url=/group/guest/home
+default.landing.page.path=/group/guest/home
+default.logout.page.path=/web/guest/home
+
+## Roles
+roles.regular.subtypes=nc4-user,nc4-organization
+
+## Sites
+sites.sitemap.default.change.frequency=monthly
+sites.email.from.name=NC4 Mission Center
+sites.email.from.address=support@nc4.us
+
+## Users
+live.users.enabled=true
+users.reminder.queries.enabled=true
+users.reminder.queries.custom.question.enabled=true
+users.reminder.queries.required=true
+users.screen.name.always.autogenerate=false
+users.email.address.required=true
+users.update.last.login=true
+locales=en_US
+users.image.max.height=600
+users.image.max.width=400
+layout.user.private.layouts.enabled=false
+layout.user.private.layouts.auto.create=false
+layout.user.private.layouts.power.user.required=true
+layout.user.public.layouts.enabled=false
+layout.user.public.layouts.auto.create=false
+layout.user.public.layouts.power.user.required=true
+terms.of.use.required=true
+#terms.of.use.journal.article.group.id=
+#terms.of.use.journal.article.id=
+
+## Organizations
+organizations.assignment.strict=true
+organizations.membership.strict=true
+
+## Admin
+admin.default.role.names=User
+admin.email.from.name=NC4 Mission Center
+admin.email.from.address=support@nc4.us
+admin.email.user.added.enabled=true
+admin.reserved.screen.names=root\nadministrator\nnc4\nauthenticate
+
+## Announcements Portlet
+announcements.email.from.name=NC4 Mission Center
+announcements.email.from.address=support@nc4.us
+announcements.email.to.name=
+announcements.email.to.address=noreply@nc4.us
+#announcements.entry.types=general,news,test
+announcements.entry.check.interval=10
+
+## Sites Admin Portlet
+sites.control.panel.members.visible=true
+sites.email.from.name=NC4 Mission Center
+sites.email.from.address=support@nc4.us
+
+## Blogs Portlet
+blogs.email.from.name=NC4 Mission Center
+blogs.email.from.address=support@nc4.us
+blogs.email.entry.added.enabled=true
+blogs.page.abstract.length=400
+blogs.rss.abstract.length=200
+blogs.linkback.excerpt.length=200
+blogs.linkback.job.interval=5
+blogs.pingback.enabled=false
+blogs.trackback.enabled=false
+blogs.ping.google.enabled=false
+blogs.entry.comments.enabled=true
+blogs.entry.previous.and.next.navigation.enabled=true
+
+## Flags Portlet
+flags.email.from.name=NC4 Mission Center
+flags.email.from.address=support@nc4.us
+flags.guest.users.enabled=false
+
+## Journal Portlet
+journal.email.from.name=NC4 Mission Center
+journal.email.from.address=support@nc4.us
+journal.article.force.autogenerate.id=true
+journal.article.view.permission.check.enabled=true
+journal.publish.to.live.by.default=true
+
+## Message Boards Portlet
+message.boards.email.from.name=NC4 Mission Center
+message.boards.email.from.address=support@nc4.us
+message.boards.email.html.format=true
+message.boards.email.message.added.enabled=true
+message.boards.anonymous.posting.enabled=true
+message.boards.expire.ban.interval=0
+message.boards.pingback.enabled=false
+message.boards.rss.abstract.length=200
+message.boards.thread.previous.and.next.navigation.enabled=true
+message.boards.thread.views=combination,flat,tree
+message.boards.thread.views.default=flat
+message.boards.publish.to.live.by.default=true
+message.boards.message.formats=bbcode,html
+message.boards.message.formats.default=html
+
+## Calendar Portlet
+calendar.event.check.interval=15
+calendar.event.comments.enabled=true
+calendar.email.from.name=NC4 Mission Center
+calendar.email.from.address=support@nc4.us
+calendar.email.event.reminder.enabled=true
+
+## Wiki Portlet
+wiki.email.from.name=NC4 Mission Center
+wiki.email.from.address=support@nc4.us
+wiki.front.page.name=Home
+wiki.formats=html
+wiki.formats.default=html
+wiki.page.ratings.enabled=true
+wiki.page.comments.enabled=true
+
+## Search Portlet
+#com.liferay.portlet.blogs.util.BlogsOpenSearchImpl=true
+#com.liferay.portlet.bookmarks.util.BookmarksOpenSearchImpl=true
+#com.liferay.portlet.calendar.util.CalendarOpenSearchImpl=true
+com.liferay.portlet.directory.util.DirectoryOpenSearchImpl=false
+#com.liferay.portlet.documentlibrary.util.DLOpenSearchImpl=true
+#com.liferay.portlet.journal.util.JournalOpenSearchImpl=true
+#com.liferay.portlet.messageboards.util.MBOpenSearchImpl=true
+#com.liferay.portlet.wiki.util.WikiOpenSearchImpl=true
+
+## Google Apps
+google.apps.username=
+google.apps.password=
+
+
+### Custom - Place Custom Properties in this section
+
+# Comment Notification changes
+#discussion.email.subject=com/nc4/portlet/messageboards/dependencies/discussion_email_subject.tmpl
+#discussion.email.body=com/nc4/portlet/messageboards/dependencies/discussion_email_body.tmpl
+
+## RSA
+#auth.pipeline.enable.liferay.check=false
+#users.form.update.main=details,password,organizations,sites,user-groups,roles,personal-site,categorization,rsa_admin
+
+rsa.twofactor.enabled=true
+# Sets login mode for portal.  1 = Username + Password (Which can be a Passcode), 2 = Username + Password + Tokencode (which can be a Passcode).
+rsa.twofactor.mode=1
+# Sets Pin Required attribute for newly assigned tokens.  0 = Pin Required, 1 = No Pin Required
+rsa.admin.pin.type=0
+rsa.admin.security.domain=Demo
+
+#NC4 Support Center Info
+nc4.support.name=NC4 Support Center
+nc4.support.email=Support@NC4Worlwide.com
+nc4.support.number=(877)624-3771
+nc4.support.hours=The NC4 Support Center is available Monday through Friday, from 8:00 am to 8:00 pm ET.
+
+# Old Sec Msg - Disable when Erica updates
+nc4.srn.secmsg.smtp.host=smtp211.n-c4.admin
+
+##For FSISAC Portlet
+fsisac.analyst.role=Analysts
+fsisac.community.name=FS-ISAC
+fsisac.org.name=FS-ISAC Organization
+
+#FS-ISAC notification params
+fsisac.notification.url.ivcid=https://demo.nc4mc.com/group/nc4/cyber-intel
+fsisac.profile.notification.cfg.url=https://demo.nc4mc.com/group/nc4/cyber-intel
+
+#081015
+enableAjaxCalls=false
+ehcache.multi.vm.config.location=/nc4-permissions-hook/WEB-INF/classes/ehcache.xml
+
+#PR Module Addition
+counter.increment.us.nc4.portlet.mc3pr.bd.PurchaseRequestBD=1
+
+
+#Task302840 - PR Aug Release Maintenance
+us.nc4.portlet.mc3pr.requests.field.disabled=VendorName
+
+#Disable Solr Task Managment
+#nc4.tm.use.solr=false
+#nc4.pr.use.solr=false
+
+#Remove Tag Suggestion button from the Tag control
+asset.tag.suggestions.enabled=false
+
+#LMIS Testing
+xml.validation.enabled=false
+
+
+
+##Password Complexity change Demo 303149
+passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz
+passwords.passwordpolicytoolkit.charset.numbers=0123456789
+passwords.passwordpolicytoolkit.charset.symbols=_.!@$*=-?
+passwords.passwordpolicytoolkit.charset.uppercase=ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+##UP Demo 303149
+nc4.UP.panels.panel1=currently_assigned
+nc4.UP.panels.panel2=users
+nc4.UP.panels.panel3=teams
+nc4.UP.panels.panel4=organization_roles
+nc4.UP.panels.panel5=compartment_roles
+nc4.UP.panels.panel6=portal_roles
+nc4.UP.panels.Team.show=true
+nc4.UP.panels.Team.name=Teams
+nc4.UP.panels.CurrentlyAssigned.Team.Type=Team
+nc4.permissions.panel.team.enableuserTeamFilter=true
+
+##Demo 303231 3.3.4
+# Use Nc4 Permission Checker
+permissions.checker=com.nc4.security.Nc4PermissionChecker
+
+# Use NC4 right version of jQuery and jQueryUI for nc4-ext
+javascript.jquery.files=\
+jquery/jquery-1.11.0.min.js,\
+jquery/jquery-ui-1.10.4.min.js,\
+jquery/jquery.carousel.js,\
+jquery/jquery.easing.js
+
+javascript.bundle.ids=\
+javascript.barebone.files,\
+javascript.everything.files,\
+javascript.jquery.files
+
+javascript.bundle.dir[javascript.jquery.files]=/html/js
+
+#Doclib download option
+ mime.types.content.disposition.inline=flv,gif,jpg,png,swf,wmv
+
+
+## User Governance -
+# This should be specified in days!
+user.max.inactivity.period=30000
+
+## Portlet Filters ##
+
+# Input a list of portlet filters that will be applied to all portlets. #
+portlet.filters.system=com.liferay.portlet.ScriptDataPortletFilter,com.nc4.portal.security.filter.SessionTimeoutFilter
+
+# Enter a list of comma delimited paths that should not be tracked. #
+session.tracker.ignore.paths= /portal/render_portlet, /document_library/get_file, /poller/send, /poller/receive, /send, /receive, /c/portal/login, /c/portal/logout, /portal/login, /portal/logout
