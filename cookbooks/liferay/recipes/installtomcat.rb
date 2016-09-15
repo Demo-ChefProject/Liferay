@@ -15,7 +15,7 @@ end
 template "liferay_portal_dir" do
   source 'portal-ext.properties.erb'
   variables({
-    :max_size => liferay_max_size,
+    :max_size => -1,
   #  :work_dir => apache_work_dir
     })
   action :create
