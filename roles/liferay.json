@@ -2,6 +2,6 @@
 	"name": "liferay",
 	"description": "This role lays down liferay application",
 	"run_list": [
-		"recipe[liferay::liferaydeploy]"
+		"recipe[liferay::liferaydeploy]" , "recipe[liferay::installtomcat]"
 		]
 }
