@@ -144,8 +144,8 @@ theme.loader.new.theme.id.on.import=false
 layout.show.portlet.access.denied=false
 
 ## Company
-company.default.name=Demo
-company.default.web.id=demo.nc4mc.com
+company.default.name=<%= @comp_name %>
+company.default.web.id=<%= @comp_webid %>
 company.default.locale=en_US
 company.default.time.zone=America/New_York
 company.security.auth.type=screenName
@@ -156,8 +156,8 @@ company.security.strangers=false
 company.security.strangers.with.mx=false
 company.security.strangers.verify=false
 company.security.site.logo=true
-company.default.home.url=/group/guest/home
-default.landing.page.path=/group/guest/home
+company.default.home.url=<%= @comp_url %>
+default.landing.page.path=<%= @default_landingpath %>
 default.logout.page.path=/web/guest/home
 
 ## Roles
