@@ -2,7 +2,7 @@
 
 #liferay_install_loc = node['nc4']['liferay']['install_location']
 #liferay_work_dir = "#{liferay_install_loc}/MC3"
-liferay_max_size = node['nc4']['max_size']
+#liferay_max_size = node['nc4']['max_size']
 
 =begin
 template "#{apache_httpd_conf}/httpd-vhost.conf" do
@@ -11,7 +11,7 @@ template "#{apache_httpd_conf}/httpd-vhost.conf" do
   action :create
 end
 =end
-
+=begin
 template "#{liferay_work_dir}/portal-exe.properties" do
   source 'portal-ext.properties.erb'
   variables({
@@ -20,3 +20,4 @@ template "#{liferay_work_dir}/portal-exe.properties" do
     })
   action :create
 end
+=end
