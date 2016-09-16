@@ -54,3 +54,16 @@ powershell_script 'Remove log,error,temp in tomcat' do
     Remove-Item #{liferay_tomcatwork_dir}/temp/* -recurse
   EOH
 end
+
+
+#Test for installtomcat.rb
+liferay_max_size = node['nc4']['max_size']
+
+template "#{liferay_work_dir}/portal-exe.properties" do
+  source 'portal-ext.properties.erb'
+  variables({
+    :max_size => liferay_max_size,
+    :work_dir => liferay_work_dir
+    })
+  action :create
+end
