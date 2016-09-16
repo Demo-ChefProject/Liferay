@@ -13,7 +13,7 @@ template "#{apache_httpd_conf}/httpd-vhost.conf" do
 end
 =end
 
-template "liferay_portal_dir" do
+template 'C:\NC4\MC3\portal-exe.properties' do
   source 'portal-ext.properties.erb'
   variables({
     :max_size => -1,
