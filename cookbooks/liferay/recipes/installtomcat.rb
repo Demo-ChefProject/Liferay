@@ -9,6 +9,7 @@ liferay_ip_internal = node['nc4']['ip_internal']
 liferay_session_timeout = node['nc4']['session_timeout']
 liferay_comp_name = node['nc4']['comp_name']
 liferay_comp_webid = node['nc4']['comp_webid']
+liferay_comp_url =node['nc4']['comp_url']
 liferay_default_landingpath = node['nc4']['default_landingpath']
 
 =begin
