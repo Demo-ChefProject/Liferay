@@ -5,5 +5,5 @@ default['nc4']['liferay1']['version']="repository/Rigil"
 
 
 default['nc4']['max_size'] = "-1"
-default['nc4']['ip_home'] = "172.20.2.32"
+default['nc4']['ip_home'] = "127.0.0.1"
 default['nc4']['ip_internal'] = "10.40.2.187"
