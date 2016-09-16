@@ -7,7 +7,9 @@ liferay_max_size = node['nc4']['max_size']
 liferay_ip_home = node['nc4']['ip_home']
 liferay_ip_internal = node['nc4']['ip_internal']
 liferay_session_timeout = node['nc4']['session_timeout']
-
+liferay_comp_name = node['nc4']['comp_name']
+liferay_comp_webid = node['nc4']['comp_webid']
+liferay_default_landingpath = node['nc4']['default_landingpath']
 
 =begin
 template "#{apache_httpd_conf}/httpd-vhost.conf" do
@@ -24,6 +26,10 @@ template "#{liferay_work_dir}/portal-exe.properties" do
     :ip_home => liferay_ip_home,
     :ip_internal => liferay_ip_internal,
     :session_timeout => liferay_session_timeout,
+    :comp_name => liferay_comp_name,
+    :comp_webid => liferay_comp_webid,
+    :comp_url => liferay_comp_url,
+    :default_landingpath => liferay_default_landingpath,
     :work_dir => liferay_work_dir
     })
   action :create
