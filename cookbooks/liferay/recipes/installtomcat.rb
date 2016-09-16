@@ -14,13 +14,7 @@ liferay_default_landingpath = node['nc4']['default_landingpath']
 liferay_form_name = node['nc4']['form_name']
 liferay_form_address = node['nc4']['form_address']
 
-=begin
-template "#{apache_httpd_conf}/httpd-vhost.conf" do
-  source 'httpd-vhosts.conf.erb'
-  variables( :server_name => apache_server_name )
-  action :create
-end
-=end
+
 
 template "#{liferay_work_dir}/portal-exe.properties" do
   source 'portal-ext.properties.erb'
