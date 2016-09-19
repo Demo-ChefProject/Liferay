@@ -14,6 +14,7 @@ liferay_default_landingpath = node['nc4']['default_landingpath']
 liferay_from_name = node['nc4']['from_name']
 liferay_from_address = node['nc4']['from_address']
 liferay_email_to_address = node['nc4']['email_to_address']
+liferay_rsa_domain = node['nc4']['rsa_domain'] 
 
 
 template "#{liferay_work_dir}/portal-ext.properties" do
@@ -30,6 +31,7 @@ template "#{liferay_work_dir}/portal-ext.properties" do
     :from_name => liferay_from_name,
     :from_address => liferay_from_address,
     :email_to_address => liferay_email_to_address, 
+    :rsa_domain => liferay_rsa_domain,
     :work_dir => liferay_work_dir
     })
   action :create
