@@ -2,6 +2,8 @@
 
 liferay_install_loc = node['nc4']['liferay']['install_location']
 liferay_work_dir = "#{liferay_install_loc}/MC3"
+liferay_tomcat_dir = "#{liferay_work_dir}/tomcat/conf  
+
 
 liferay_max_size = node['nc4']['max_size']
 liferay_ip_home = node['nc4']['ip_home']
@@ -64,4 +66,13 @@ If ($line1  -eq "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklm
  Write-Host $line4
   }
 EOH
+end
+
+#Changes inside context.xml
+template "#{liferay_tomcat_dir}/context.xml.prod" do
+  source 'context.xml.prod.erb'
+  variables({
+    :work_dir => liferay_tomcat_dir
+    })
+  action :create
 end
