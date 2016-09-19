@@ -42,3 +42,23 @@ template "#{liferay_work_dir}/portal-ext.properties" do
   action :create
 end
 
+#check if password complexity exists
+$line1 = 'passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz'
+$line2 = 'passwords.passwordpolicytoolkit.charset.numbers=0123456789'
+$line3 = 'passwords.passwordpolicytoolkit.charset.symbols=_.!@$*=-?'
+$line4 = 'passwords.passwordpolicytoolkit.charset.uppercase=ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+$successmsg = 'Password complexity exits'
+If ($line1  -eq 'passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz' 
+-AND $line2 -eq 'passwords.passwordpolicytoolkit.charset.numbers=0123456789'
+-AND $line3 -eq 'passwords.passwordpolicytoolkit.charset.symbols=_.!@$*=-?' 
+-AND $line3 -eq 'passwords.passwordpolicytoolkit.charset.uppercase=ABCDEFGHIJKLMNOPQRSTUVWXYZ' ) 
+{
+  Write-Host "successmsg: $successmsg"
+  }
+  ELSE
+{
+ Write-Host
+ Write-Host
+ Write-Host
+ Write-Host
+  }
