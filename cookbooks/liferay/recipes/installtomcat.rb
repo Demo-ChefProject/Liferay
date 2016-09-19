@@ -90,8 +90,8 @@ end
 =end
 powershell_script 'install Tomcat service if not exists' do
   code <<-EOH
-      $serviceName = "Apache Tomcat MC3"
-       if ($Service = Get-Service -Name Apache Tomcat MC3 -ErrorAction SilentlyContinue)
+      $serviceName = "Apache-Tomcat-MC3"
+       if ($Service = Get-Service -Name Apache-Tomcat-MC3 -ErrorAction SilentlyContinue)
        {
           $serviceToRemove = Get-WmiObject -Class Win32_Service -Filter "name='$serviceName'"
           $serviceToRemove.delete()
@@ -102,7 +102,7 @@ powershell_script 'install Tomcat service if not exists' do
           "service does not exists"
        }
        
-          sc create Apache Tomcat MC3 binPath= \"#{liferay_work_dir}/tomcat/bin\" start= auto DisplayName= \"Apache Tomcat MC3\"
+          sc create Apache-Tomcat-MC3 binPath= \"#{liferay_work_dir}/tomcat/bin\" start= auto DisplayName= \"Apache-Tomcat-MC3\"
 
   EOH
 end
