@@ -68,11 +68,12 @@ If ($line1  -eq "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklm
 EOH
 end
 
+#Satvinder didn't want separate prod and pre-prod as previous discussions with Rajesh
 #Changes inside context.xml
-template "#{liferay_tomcat_dir}/context.xml.prod" do
-  source 'context.xml.prod.erb'
-  variables({
-    :work_dir => liferay_tomcat_dir
-    })
-  action :create
-end
+#template "#{liferay_tomcat_dir}/context.xml.prod" do
+#  source 'context.xml.prod.erb'
+#  variables({
+#    :work_dir => liferay_tomcat_dir
+#    })
+#  action :create
+#end
