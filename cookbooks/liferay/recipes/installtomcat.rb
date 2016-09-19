@@ -57,8 +57,8 @@ If ($line1  -eq 'passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklm
   }
   ELSE
 {
- Write-Host
- Write-Host
- Write-Host
- Write-Host
+ Write-Host $line1
+ Write-Host $line2
+ Write-Host $line3
+ Write-Host $line4
   }
