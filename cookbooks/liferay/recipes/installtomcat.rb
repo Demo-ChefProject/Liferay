@@ -11,8 +11,8 @@ liferay_comp_name = node['nc4']['comp_name']
 liferay_comp_webid = node['nc4']['comp_webid']
 liferay_comp_url =node['nc4']['comp_url']
 liferay_default_landingpath = node['nc4']['default_landingpath']
-liferay_form_name = node['nc4']['form_name']
-liferay_form_address = node['nc4']['form_address']
+liferay_from_name = node['nc4']['from_name']
+liferay_from_address = node['nc4']['from_address']
 
 
 
@@ -27,8 +27,8 @@ template "#{liferay_work_dir}/portal-exe.properties" do
     :comp_webid => liferay_comp_webid,
     :comp_url => liferay_comp_url,
     :default_landingpath => liferay_default_landingpath,
-    :form_name => liferay_form_name,
-    :form_address => liferay_form_address,
+    :from_name => liferay_from_name,
+    :from_address => liferay_from_address,
     :work_dir => liferay_work_dir
     })
   action :create
