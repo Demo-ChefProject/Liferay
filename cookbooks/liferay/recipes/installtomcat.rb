@@ -43,6 +43,9 @@ template "#{liferay_work_dir}/portal-ext.properties" do
 end
 
 #check if password complexity exists
+powershell_script 'check if password complexity exists' do
+  guard_interpreter :powershell_script
+  code <<-EOH
 $line1 = 'passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz'
 $line2 = 'passwords.passwordpolicytoolkit.charset.numbers=0123456789'
 $line3 = 'passwords.passwordpolicytoolkit.charset.symbols=_.!@$*=-?'
@@ -62,3 +65,5 @@ If ($line1  -eq 'passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklm
  Write-Host $line3
  Write-Host $line4
   }
+EOH
+end
