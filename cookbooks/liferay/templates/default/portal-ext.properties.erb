@@ -296,7 +296,7 @@ google.apps.password=
 #auth.pipeline.enable.liferay.check=false
 #users.form.update.main=details,password,organizations,sites,user-groups,roles,personal-site,categorization,rsa_admin
 
-rsa.twofactor.enabled=true
+rsa.twofactor.enabled=<%= @rsa_twofactor_enabled %>
 # Sets login mode for portal.  1 = Username + Password (Which can be a Passcode), 2 = Username + Password + Tokencode (which can be a Passcode).
 rsa.twofactor.mode=<%= @rsa_twofactor_mode %>
 # Sets Pin Required attribute for newly assigned tokens.  0 = Pin Required, 1 = No Pin Required
