@@ -101,7 +101,7 @@ powershell_script 'install Tomcat service if not exists' do
        {
           "service does not exists"
        }
-
+       
           sc create Apache Tomcat MC3 binPath= \"#{liferay_work_dir}/tomcat/bin\" start= auto DisplayName= \"Apache Tomcat MC3\"
 
   EOH
