@@ -14,4 +14,4 @@ default['nc4']['comp_webid'] = "portal.customername.com"
 default['nc4']['default_landingpath'] = "/group/guest/home"
 default['nc4']['from_name'] = "Mission Center Customer Name"
 default['nc4']['from_address']= "noreply@nc4.com"
-
+default['nc4']['email_to_address']= "noreply@nc4.com"
