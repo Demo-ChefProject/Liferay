@@ -16,7 +16,7 @@ liferay_from_address = node['nc4']['from_address']
 
 
 
-template "#{liferay_work_dir}/portal-exe.properties" do
+template "#{liferay_work_dir}/portal-ext.properties" do
   source 'portal-ext.properties.erb'
   variables({
     :max_size => liferay_max_size,
