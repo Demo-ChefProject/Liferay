@@ -88,7 +88,7 @@ powershell_script 'install Tomcat service if not exists' do
   EOH
 end
 =end
-powershell_script 'install Tomcat service if not exists' do
+powershell_script 'Delete Tomcat Service if exists' do
   code <<-EOH
       $serviceName = "Apache-Tomcat-MC3"
        if ($Service = Get-Service -Name Apache-Tomcat-MC3 -ErrorAction SilentlyContinue)
@@ -101,8 +101,15 @@ powershell_script 'install Tomcat service if not exists' do
        {
           "service does not exists"
        }
-       
-          sc create Apache-Tomcat-MC3 binPath= \"#{liferay_work_dir}/tomcat/bin\" start= auto DisplayName= \"Apache-Tomcat-MC3\"
-
+  notifies :run, 'powershell_script[install Tomcat Service]', :immediately
   EOH
+end
+
+powershell_script 'Remove error folder' do
+  code <<-EOH
+   $Service = Get-Service -Name Apache-Tomcat-MC3 -ErrorAction SilentlyContinue
+     if (! $Service) {
+           sc create Apache-Tomcat-MC3 binPath= \"#{liferay_work_dir}/tomcat/bin\" start= auto DisplayName= \"Apache-Tomcat-MC3\"
+     }
+     EOH
 end
