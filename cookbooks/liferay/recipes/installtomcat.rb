@@ -105,7 +105,7 @@ powershell_script 'Delete Tomcat Service if exists' do
   EOH
 end
 
-powershell_script 'Remove error folder' do
+powershell_script 'install Tomcat Service' do
   code <<-EOH
    $Service = Get-Service -Name Apache-Tomcat-MC3 -ErrorAction SilentlyContinue
      if (! $Service) {
