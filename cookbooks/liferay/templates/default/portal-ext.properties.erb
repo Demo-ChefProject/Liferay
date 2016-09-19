@@ -166,7 +166,7 @@ roles.regular.subtypes=nc4-user,nc4-organization
 ## Sites
 sites.sitemap.default.change.frequency=monthly
 sites.email.from.name=<%= @from_name %>
-sites.email.from.address=support@nc4.us
+sites.email.from.address=<%= @from_address %>
 
 ## Users
 live.users.enabled=true
@@ -215,7 +215,7 @@ sites.email.from.address=<%= @from_address %>
 
 ## Blogs Portlet
 blogs.email.from.name=<%= @from_name %>
-blogs.email.from.address=support@nc4.us
+blogs.email.from.address=<%= @from_address %>
 blogs.email.entry.added.enabled=true
 blogs.page.abstract.length=400
 blogs.rss.abstract.length=200
@@ -229,19 +229,19 @@ blogs.entry.previous.and.next.navigation.enabled=true
 
 ## Flags Portlet
 flags.email.from.name=<%= @from_name %>
-flags.email.from.address=support@nc4.us
+flags.email.from.address=<%= @from_address %>
 flags.guest.users.enabled=false
 
 ## Journal Portlet
 journal.email.from.name=<%= @from_name %>
-journal.email.from.address=support@nc4.us
+journal.email.from.address=<%= @from_address %>
 journal.article.force.autogenerate.id=true
 journal.article.view.permission.check.enabled=true
 journal.publish.to.live.by.default=true
 
 ## Message Boards Portlet
 message.boards.email.from.name=<%= @from_name %>
-message.boards.email.from.address=support@nc4.us
+message.boards.email.from.address=<%= @from_address %>
 message.boards.email.html.format=true
 message.boards.email.message.added.enabled=true
 message.boards.anonymous.posting.enabled=true
@@ -259,12 +259,12 @@ message.boards.message.formats.default=html
 calendar.event.check.interval=15
 calendar.event.comments.enabled=true
 calendar.email.from.name=<%= @from_name %>
-calendar.email.from.address=support@nc4.us
+calendar.email.from.address=<%= @from_address %>
 calendar.email.event.reminder.enabled=true
 
 ## Wiki Portlet
 wiki.email.from.name=<%= @from_name %>
-wiki.email.from.address=support@nc4.us
+wiki.email.from.address=<%= @from_address %>
 wiki.front.page.name=Home
 wiki.formats=html
 wiki.formats.default=html
