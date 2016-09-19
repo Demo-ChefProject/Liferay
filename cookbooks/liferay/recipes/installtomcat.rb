@@ -46,15 +46,13 @@ end
 powershell_script 'check if password complexity exists' do
   guard_interpreter :powershell_script
   code <<-EOH
-$line1 = 'passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz'
-$line2 = 'passwords.passwordpolicytoolkit.charset.numbers=0123456789'
-$line3 = 'passwords.passwordpolicytoolkit.charset.symbols=_.!@$*=-?'
-$line4 = 'passwords.passwordpolicytoolkit.charset.uppercase=ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+$line1 = "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz"
+$line2 = "passwords.passwordpolicytoolkit.charset.numbers=0123456789"
+$line3 = "passwords.passwordpolicytoolkit.charset.symbols=_.!@$*=-?"
+$line4 = "passwords.passwordpolicytoolkit.charset.uppercase=ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 $successmsg = 'Password complexity exits'
-If ($line1  -eq 'passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz' 
--AND $line2 -eq 'passwords.passwordpolicytoolkit.charset.numbers=0123456789'
--AND $line3 -eq 'passwords.passwordpolicytoolkit.charset.symbols=_.!@$*=-?' 
--AND $line3 -eq 'passwords.passwordpolicytoolkit.charset.uppercase=ABCDEFGHIJKLMNOPQRSTUVWXYZ' ) 
+If ($line1  -eq "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz" -AND $line2 -eq "passwords.passwordpolicytoolkit.charset.numbers=0123456789" -AND $line3 -eq "passwords.passwordpolicytoolkit.charset.symbols=_.!@$*=-?" -AND $line4 -eq "passwords.passwordpolicytoolkit.charset.uppercase=ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+ 
 {
   Write-Host "successmsg: $successmsg"
   }
