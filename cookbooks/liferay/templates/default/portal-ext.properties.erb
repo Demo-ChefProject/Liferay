@@ -165,7 +165,7 @@ roles.regular.subtypes=nc4-user,nc4-organization
 
 ## Sites
 sites.sitemap.default.change.frequency=monthly
-sites.email.from.name=NC4 Mission Center
+sites.email.from.name=<%= @from_name %>
 sites.email.from.address=support@nc4.us
 
 ## Users
@@ -195,14 +195,14 @@ organizations.membership.strict=true
 
 ## Admin
 admin.default.role.names=User
-admin.email.from.name=<%= @form_name %>
-admin.email.from.address=<%= @form_address %>
+admin.email.from.name=<%= @from_name %>
+admin.email.from.address=<%= @from_address %>
 admin.email.user.added.enabled=true
 admin.reserved.screen.names=root\nadministrator\nnc4\nauthenticate
 
 ## Announcements Portlet
-announcements.email.from.name=<%= @form_name %>
-announcements.email.from.address=<%= @form_address %>
+announcements.email.from.name=<%= @from_name %>
+announcements.email.from.address=<%= @from_address %>
 announcements.email.to.name=
 announcements.email.to.address=noreply@nc4.us
 #announcements.entry.types=general,news,test
@@ -210,11 +210,11 @@ announcements.entry.check.interval=10
 
 ## Sites Admin Portlet
 sites.control.panel.members.visible=true
-sites.email.from.name=<%= @form_name %>
-sites.email.from.address=<%= @form_address %>
+sites.email.from.name=<%= @from_name %>
+sites.email.from.address=<%= @from_address %>
 
 ## Blogs Portlet
-blogs.email.from.name=NC4 Mission Center
+blogs.email.from.name=<%= @from_name %>
 blogs.email.from.address=support@nc4.us
 blogs.email.entry.added.enabled=true
 blogs.page.abstract.length=400
@@ -228,19 +228,19 @@ blogs.entry.comments.enabled=true
 blogs.entry.previous.and.next.navigation.enabled=true
 
 ## Flags Portlet
-flags.email.from.name=NC4 Mission Center
+flags.email.from.name=<%= @from_name %>
 flags.email.from.address=support@nc4.us
 flags.guest.users.enabled=false
 
 ## Journal Portlet
-journal.email.from.name=NC4 Mission Center
+journal.email.from.name=<%= @from_name %>
 journal.email.from.address=support@nc4.us
 journal.article.force.autogenerate.id=true
 journal.article.view.permission.check.enabled=true
 journal.publish.to.live.by.default=true
 
 ## Message Boards Portlet
-message.boards.email.from.name=NC4 Mission Center
+message.boards.email.from.name=<%= @from_name %>
 message.boards.email.from.address=support@nc4.us
 message.boards.email.html.format=true
 message.boards.email.message.added.enabled=true
@@ -258,12 +258,12 @@ message.boards.message.formats.default=html
 ## Calendar Portlet
 calendar.event.check.interval=15
 calendar.event.comments.enabled=true
-calendar.email.from.name=NC4 Mission Center
+calendar.email.from.name=<%= @from_name %>
 calendar.email.from.address=support@nc4.us
 calendar.email.event.reminder.enabled=true
 
 ## Wiki Portlet
-wiki.email.from.name=NC4 Mission Center
+wiki.email.from.name=<%= @from_name %>
 wiki.email.from.address=support@nc4.us
 wiki.front.page.name=Home
 wiki.formats=html
