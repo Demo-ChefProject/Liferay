@@ -300,7 +300,7 @@ rsa.twofactor.enabled=true
 # Sets login mode for portal.  1 = Username + Password (Which can be a Passcode), 2 = Username + Password + Tokencode (which can be a Passcode).
 rsa.twofactor.mode=1
 # Sets Pin Required attribute for newly assigned tokens.  0 = Pin Required, 1 = No Pin Required
-rsa.admin.pin.type=0
+rsa.admin.pin.type=<%= @rsa_pin_type %>
 rsa.admin.security.domain=<%= @rsa_domain %>
 
 #NC4 Support Center Info
