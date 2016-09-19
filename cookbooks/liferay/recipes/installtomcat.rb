@@ -13,7 +13,7 @@ liferay_comp_url =node['nc4']['comp_url']
 liferay_default_landingpath = node['nc4']['default_landingpath']
 liferay_from_name = node['nc4']['from_name']
 liferay_from_address = node['nc4']['from_address']
-
+liferay_email_to_address = node['nc4']['email_to_address']
 
 
 template "#{liferay_work_dir}/portal-ext.properties" do
@@ -29,6 +29,7 @@ template "#{liferay_work_dir}/portal-ext.properties" do
     :default_landingpath => liferay_default_landingpath,
     :from_name => liferay_from_name,
     :from_address => liferay_from_address,
+    :email_to_address => liferay_email_to_address, 
     :work_dir => liferay_work_dir
     })
   action :create
