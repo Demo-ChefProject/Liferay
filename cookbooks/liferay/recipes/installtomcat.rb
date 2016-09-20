@@ -75,7 +75,7 @@ powershell_script 'check if password complexity exists2' do
   guard_interpreter :powershell_script
   code <<-EOH
 $line1 = "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz"
-$TSProfile_exist = test-path "C:\NC4\MC3\portal-ext.properties\$username"
+$TSProfile_exist = test-path "C:\NC4\MC3\portal-ext.properties\$line1"
 
 If ($TSProfile_exist -eq true)
 {
