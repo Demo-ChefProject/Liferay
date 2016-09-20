@@ -80,7 +80,7 @@ $TSProfile_exist = test-path "C:\\NC4\\MC3\\portal-ext.properties"
 $filepath = Get-Content C:\\NC4\\MC3\\portal-ext.properties 
 Compare-Object filepath$ line1$
 
-If ($filepath -match "34sdc32qe")
+If ($filepath -match "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxy")
 {
 Write-Host "Yippee, pswd comp exists"
 }
@@ -117,7 +117,7 @@ powershell_script 'install Tomcat Service' do
      $Service = Get-Service -Name Apache-Tomcat-MC3 -ErrorAction SilentlyContinue
      if (! $Service) {
            sc create Apache-Tomcat-MC3 binPath= \"#{liferay_work_dir}/tomcat/bin/service.bat\" start= auto DisplayName= \"Apache Tomcat MC3\"
-           Invoke-Expression "cmd /c sc start $service.bat install MC3"  
+           Invoke-Expression "cmd /c $service.bat install MC3"  
      }
   EOH
 end
