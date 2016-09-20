@@ -67,10 +67,13 @@ If ($line1  -eq "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklm
  Write-Host $line4
   }
 EOH
-notifies :run, 'powershell_script[Delete Tomcat Service if exists]', :immediately
+#notifies :run, 'powershell_script[Delete Tomcat Service if exists]', :immediately
 end
 
 #Testing
+powershell_script 'check if password complexity exists2' do
+  guard_interpreter :powershell_script
+  code <<-EOH
 $line1 = "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz"
 $TSProfile_exist = test-path "C:\NC4\MC3\portal-ext.properties\$username"
 
@@ -81,6 +84,8 @@ Write-Host "Yippee, pswd comp exists"
 ELSE {
 Write-Host "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz"
 }
+EOH
+end
 
 #Satvinder didn't want separate prod and pre-prod as previous discussions with Rajesh
 #Changes inside context.xml
