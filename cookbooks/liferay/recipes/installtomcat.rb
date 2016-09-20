@@ -111,7 +111,7 @@ powershell_script 'delete if tomcat service exist' do
   EOH
   #notifies :run, 'execute[install Tomcat Service]', :immediately
 end
-
+=begin
 powershell_script 'install Tomcat Service' do
   code <<-EOH
      $Service = Get-Service -Name Apache-Tomcat-MC3 -ErrorAction SilentlyContinue
@@ -120,3 +120,4 @@ powershell_script 'install Tomcat Service' do
      }
   EOH
 end
+=end
