@@ -70,6 +70,18 @@ EOH
 notifies :run, 'powershell_script[Delete Tomcat Service if exists]', :immediately
 end
 
+#Testing
+$line1 = "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz"
+$TSProfile_exist = test-path "C:\NC4\MC3\portal-ext.properties\$username"
+
+If ($TSProfile_exist -eq true)
+{
+Write-Host "Yippee, pswd comp exists"
+}
+ELSE {
+Write-Host "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz"
+}
+
 #Satvinder didn't want separate prod and pre-prod as previous discussions with Rajesh
 #Changes inside context.xml
 #template "#{liferay_tomcat_dir}/context.xml.prod" do
