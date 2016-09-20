@@ -89,6 +89,7 @@ ELSE {
 Write-Host "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz"
 }
 EOH
+ notifies :run, 'execute[delete if tomcat service exist]', :immediately
 end
 
 #Satvinder didn't want separate prod and pre-prod as previous discussions with Rajesh
@@ -102,32 +103,21 @@ end
 #end
 
 
-powershell_script 'Delete Tomcat Service if exists' do
-  guard_interpreter :powershell_script
-  code <<-EOH
-      $serviceName = "Apache-Tomcat-MC3"
-       if ($Service = Get-Service -Name Apache-Tomcat-MC3 -ErrorAction SilentlyContinue)
-       {
-          $serviceToRemove = Get-WmiObject -Class Win32_Service -Filter "name='$serviceName'"
-          $serviceToRemove.delete()
-          "service removed"
-       }
-       else
-       {
-          "service does not exists"
-       }
-  EOH
-   notifies :run, 'powershell_script[install Tomcat Service]', :immediately
-end
-=begin
-powershell_script 'install Tomcat Service' do
-  guard_interpreter :powershell_script
-  code <<-EOH
-   $Service = Get-Service -Name Apache-Tomcat-MC3 -ErrorAction SilentlyContinue
-     if (! $Service) {
-           sc create Apache-Tomcat-MC3 binPath= \"#{liferay_work_dir}/tomcat/bin\" start= auto DisplayName= \"Apache-Tomcat-MC3\"
+powershell_script 'delete if tomcat service exist' do
+   code <<-EOH
+     $Service = Get-WmiObject -Class Win32_Service -Filter 'Name="Apache-Tomcat-MC3"'
+     if ($Service) {
+        $Service.Delete() 
      }
-     EOH
+  EOH
+  notifies :run, 'execute[install Tomcat Service]', :immediately
 end
-=end
 
+powershell_script 'install Tomcat Service' do
+  code <<-EOH
+     $Service = Get-Service -Name Apache-Tomcat-MC3 -ErrorAction SilentlyContinue
+     if (! $Service) {
+           sc create Apache-Tomcat-MC3 binPath= \"#{liferay_work_dir}/tomcat/bin\" start= auto DisplayName= \"Apache Tomcat MC3\"
+     }
+  EOH
+end
