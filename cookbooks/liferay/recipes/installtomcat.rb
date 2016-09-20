@@ -80,7 +80,7 @@ $TSProfile_exist = test-path "C:\\hello\\haha.txt"
 $filepath = Get-Content C:\\NC4\\MC3\\portal-ext.properties 
 Compare-Object filepath$ line1$
 
-If ($filepath -match "abcdefghijklmnopqrstuvwxyz")
+If ($filepath -match "34sdc32qe")
 {
 Write-Host "Yippee, pswd comp exists"
 }
