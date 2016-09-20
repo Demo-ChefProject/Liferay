@@ -44,7 +44,7 @@ template "#{liferay_work_dir}/portal-ext.properties" do
     })
   action :create
 end
-
+=begin
 #check if password complexity exists
 powershell_script 'check if password complexity exists' do
   guard_interpreter :powershell_script
@@ -69,6 +69,7 @@ If ($line1  -eq "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklm
 EOH
 #notifies :run, 'powershell_script[Delete Tomcat Service if exists]', :immediately
 end
+=end
 
 #Testing
 powershell_script 'check if password complexity exists2' do
