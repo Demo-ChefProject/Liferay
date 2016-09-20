@@ -102,7 +102,7 @@ end
 #  action :create
 #end
 
-
+=begin
 powershell_script 'Delete Tomcat Service if exists' do
   guard_interpreter :powershell_script
   code <<-EOH
@@ -130,3 +130,4 @@ powershell_script 'install Tomcat Service' do
      }
      EOH
 end
+=end
