@@ -119,7 +119,7 @@ powershell_script 'Delete Tomcat Service if exists' do
   EOH
    notifies :run, 'powershell_script[install Tomcat Service]', :immediately
 end
-
+=begin
 powershell_script 'install Tomcat Service' do
   guard_interpreter :powershell_script
   code <<-EOH
@@ -129,4 +129,5 @@ powershell_script 'install Tomcat Service' do
      }
      EOH
 end
+=end
 
