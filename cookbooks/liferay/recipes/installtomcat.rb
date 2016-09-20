@@ -80,6 +80,7 @@ end
 
 
 powershell_script 'Delete Tomcat Service if exists' do
+  guard_interpreter :powershell_script
   code <<-EOH
       $serviceName = "Apache-Tomcat-MC3"
        if ($Service = Get-Service -Name Apache-Tomcat-MC3 -ErrorAction SilentlyContinue)
@@ -97,6 +98,7 @@ powershell_script 'Delete Tomcat Service if exists' do
 end
 
 powershell_script 'install Tomcat Service' do
+  guard_interpreter :powershell_script
   code <<-EOH
    $Service = Get-Service -Name Apache-Tomcat-MC3 -ErrorAction SilentlyContinue
      if (! $Service) {
