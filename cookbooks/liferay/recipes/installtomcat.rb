@@ -66,6 +66,7 @@ If ($line1  -eq "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklm
  Write-Host $line4
   }
 EOH
+notifies :run, 'powershell_script[Delete Tomcat Service if exists]', :immediately
 end
 
 #Satvinder didn't want separate prod and pre-prod as previous discussions with Rajesh
@@ -93,8 +94,8 @@ powershell_script 'Delete Tomcat Service if exists' do
        {
           "service does not exists"
        }
-  notifies :run, 'powershell_script[install Tomcat Service]', :immediately
   EOH
+   notifies :run, 'powershell_script[install Tomcat Service]', :immediately
 end
 
 powershell_script 'install Tomcat Service' do
