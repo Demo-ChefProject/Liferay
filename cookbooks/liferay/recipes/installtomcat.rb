@@ -77,7 +77,7 @@ powershell_script 'check if password complexity exists2' do
 $line1 = "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz"
 $TSProfile_exist = test-path "C:\\hello\\haha.txt"
 
-$filepath = Get-Content C:\NC4\MC3\portal-ext.properties 
+$filepath = Get-Content C:\\NC4\\MC3\\portal-ext.properties 
 Compare-Object filepath$ line1$
 
 If ($filepath -match "abcdefghijklmnopqrstuvwxyz")
