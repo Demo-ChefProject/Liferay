@@ -2,7 +2,7 @@
 
 liferay_install_loc = node['nc4']['liferay']['install_location']
 liferay_work_dir = "#{liferay_install_loc}/MC3"
-liferay_tomcat_dir = "#{liferay_work_dir}/tomcat/conf  
+liferay_tomcat_dir = "#{liferay_work_dir}/tomcat/conf"  
 
 
 liferay_max_size = node['nc4']['max_size']
