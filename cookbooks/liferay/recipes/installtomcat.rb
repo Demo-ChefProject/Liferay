@@ -20,7 +20,6 @@ liferay_rsa_domain = node['nc4']['rsa_domain']
 liferay_rsa_pin_type = node['nc4']['rsa_pin_type']
 liferay_rsa_twofactor_mode = node['nc4']['rsa_twofactor_mode']
 liferay_rsa_twofactor_enabled = node['nc4']['rsa_twofactor_enabled']
-liferay_pswd_lowercase = node['nc4']['pswd_lowercase']
 
 
 template "#{liferay_work_dir}/portal-ext.properties" do
@@ -41,7 +40,6 @@ template "#{liferay_work_dir}/portal-ext.properties" do
     :rsa_pin_type => liferay_rsa_pin_type,
     :rsa_twofactor_mode => liferay_rsa_twofactor_mode,
     :rsa_twofactor_enabled => liferay_rsa_twofactor_enabled,
-    :pswd_lowercase => liferay_pswd_lowercase,
     :work_dir => liferay_work_dir
     })
   action :create
