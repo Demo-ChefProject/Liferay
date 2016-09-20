@@ -77,7 +77,7 @@ powershell_script 'check if password complexity exists2' do
 $line1 = "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz"
 $TSProfile_exist = test-path "C:\NC4\MC3\portal-ext.properties\$line1"
 
-If ($TSProfile_exist -eq true)
+If ($TSProfile_exist -match "abcdefghijklmnopqrstuvwxyz")
 {
 Write-Host "Yippee, pswd comp exists"
 }
