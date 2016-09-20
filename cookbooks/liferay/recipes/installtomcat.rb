@@ -69,7 +69,7 @@ If ($line1  -eq "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklm
 EOH
 #notifies :run, 'powershell_script[Delete Tomcat Service if exists]', :immediately
 end
-=end
+
 
 #Testing
 powershell_script 'check if password complexity exists2' do
@@ -91,7 +91,7 @@ Write-Host "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqr
 EOH
  notifies :run, 'execute[delete if tomcat service exist]', :immediately
 end
-
+=end
 #Satvinder didn't want separate prod and pre-prod as previous discussions with Rajesh
 #Changes inside context.xml
 #template "#{liferay_tomcat_dir}/context.xml.prod" do
