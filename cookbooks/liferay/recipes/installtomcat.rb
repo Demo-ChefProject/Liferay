@@ -88,7 +88,7 @@ ELSE {
 Write-Host "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz"
 }
 EOH
- notifies :run, 'execute[delete if tomcat service exist]', :immediately
+ #notifies :run, 'execute[delete if tomcat service exist]', :immediately
 end
 
 #Satvinder didn't want separate prod and pre-prod as previous discussions with Rajesh
