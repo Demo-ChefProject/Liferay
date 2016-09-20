@@ -75,15 +75,19 @@ powershell_script 'check if password complexity exists2' do
   guard_interpreter :powershell_script
   code <<-EOH
 $line1 = "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz"
-$TSProfile_exist = test-path "C:\NC4\MC3\portal-ext.properties\$line1"
+$TSProfile_exist = test-path "C:\\hello\\haha.txt"
 
-If ($TSProfile_exist -match "abcdefghijklmnopqrstuvwxyz")
+$filepath = Get-Content C:\NC4\MC3\portal-ext.properties 
+Compare-Object filepath$ line1$
+
+If ($filepath -match "abcdefghijklmnopqrstuvwxyz")
 {
 Write-Host "Yippee, pswd comp exists"
 }
 ELSE {
 Write-Host "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz"
 }
+
 EOH
 end
 
