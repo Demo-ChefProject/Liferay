@@ -19,4 +19,4 @@ default['nc4']['rsa_domain']= "Demo"
 default['nc4']['rsa_pin_type']= "0"
 default['nc4']['rsa_twofactor_mode']= "1"
 default['nc4']['rsa_twofactor_enabled']= "false"
-default['nc4']['pswd_lowercase']= "abcdefghijklmnopqrstuvwxyz"
+
