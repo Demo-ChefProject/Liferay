@@ -88,7 +88,6 @@ Write-Host "Yippee, pswd comp exists"
 ELSE {
 Write-Host "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz"
 }
-
 EOH
 end
 
@@ -102,7 +101,7 @@ end
 #  action :create
 #end
 
-=begin
+
 powershell_script 'Delete Tomcat Service if exists' do
   guard_interpreter :powershell_script
   code <<-EOH
@@ -130,4 +129,4 @@ powershell_script 'install Tomcat Service' do
      }
      EOH
 end
-=end
+
