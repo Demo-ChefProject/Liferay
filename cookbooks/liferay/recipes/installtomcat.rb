@@ -109,16 +109,16 @@ powershell_script 'delete if tomcat service exist' do
         $Service.Delete() 
      }
   EOH
-  #notifies :run, 'execute[install Tomcat Service]', :immediately
+  notifies :run, 'execute[install Tomcat Service]', :immediately
 end
-=begin
+
 powershell_script 'install Tomcat Service' do
   code <<-EOH
      $Service = Get-Service -Name Apache-Tomcat-MC3 -ErrorAction SilentlyContinue
      if (! $Service) {
-           sc create Apache-Tomcat-MC3 binPath= \"#{liferay_work_dir}/tomcat/bin/service.bat\" start= auto DisplayName= \"Apache Tomcat MC3\"
            Invoke-Expression "cmd /c $service.bat install MC3"  
      }
   EOH
 end
-=end
+
+#sc create Apache-Tomcat-MC3 binPath= \"#{liferay_work_dir}/tomcat/bin/service.bat\" start= auto DisplayName= \"Apache Tomcat MC3\"
