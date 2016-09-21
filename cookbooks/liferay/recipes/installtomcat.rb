@@ -109,7 +109,7 @@ powershell_script 'delete if tomcat service exist' do
         $Service.Delete() 
      }
   EOH
-  notifies :run, 'execute[install Tomcat Service]', :immediately
+  #notifies :run, 'execute[install Tomcat Service]', :immediately
 end
 
 powershell_script 'install Tomcat Service' do
