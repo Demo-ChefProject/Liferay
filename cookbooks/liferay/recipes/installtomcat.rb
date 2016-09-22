@@ -80,26 +80,17 @@ $TSProfile_exist = test-path "C:\\NC4\\MC3\\portal-ext.properties"
 $filepath = Get-Content C:\\NC4\\MC3\\portal-ext.properties 
 Compare-Object filepath$ line1$
 
-If ($filepath -match "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxy")
+If ($filepath -match "24fsf24")
 {
 Write-Host "Yippee, pswd comp exists"
 }
 ELSE {
+add-content C:\NC4\MC3\portal-ext.properties "<p><i>passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz</i>"
 Write-Host "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz"
 }
 EOH
  #notifies :run, 'execute[delete if tomcat service exist]', :immediately
 end
-
-#Satvinder didn't want separate prod and pre-prod as previous discussions with Rajesh
-#Changes inside context.xml
-#template "#{liferay_tomcat_dir}/context.xml.prod" do
-#  source 'context.xml.prod.erb'
-#  variables({
-#    :work_dir => liferay_tomcat_dir
-#    })
-#  action :create
-#end
 
 
 powershell_script 'delete if tomcat service exist' do
@@ -109,7 +100,7 @@ powershell_script 'delete if tomcat service exist' do
           Invoke-Expression "cmd /c C:/NC4/MC3/tomcat/bin/service.bat uninstall Apache Tomcat MC3" 
      }
   EOH
-  #notifies :run, 'execute[install Tomcat Service]', :immediately
+  notifies :run, 'execute[install Tomcat Service]', :immediately
 end
 
 powershell_script 'install Tomcat Service' do
