@@ -104,9 +104,9 @@ end
 
 powershell_script 'delete if tomcat service exist' do
    code <<-EOH
-     $Service = Get-WmiObject -Class Win32_Service -Filter 'Name="Apache-Tomcat-MC3"'
-     if ($Service) {
-        $Service.Delete() 
+    $Service = Get-Service -Name Apache-Tomcat-MC3 -ErrorAction SilentlyContinue
+     if (! $Service) {
+          .\service.bat uninstall Apache Tomcat MC3 
      }
   EOH
   #notifies :run, 'execute[install Tomcat Service]', :immediately
