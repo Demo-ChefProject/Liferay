@@ -76,11 +76,10 @@ powershell_script 'check if password complexity exists' do
   code <<-EOH
 $line1 = "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz"
 $TSProfile_exist = test-path "C:\\NC4\\MC3\\portal-ext.properties"
-
 $filepath = Get-Content C:\\NC4\\MC3\\portal-ext.properties 
-Compare-Object filepath$ line1$
-
-If ($filepath -match "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz" -AND $filepath -match "passwords.passwordpolicytoolkit.charset.numbers=0123456789" -AND $filepath -match "passwords.passwordpolicytoolkit.charset.symbols=_.!@$*=-?" -AND $filepath -match "passwords.passwordpolicytoolkit.charset.uppercase=ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+#echo $filepath
+echo $compare = Compare-Object filepath$ line1$
+If ($filepath -ccontains "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz" -AND $filepath -ccontains "passwords.passwordpolicytoolkit.charset.numbers=0123456789" -AND $filepath -ccontains "passwords.passwordpolicytoolkit.charset.symbols=_.!@$*=-?" -AND $filepath -ccontains "passwords.passwordpolicytoolkit.charset.uppercase=ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 {
 Write-Host "Yippee, pswd comp exists"
 }
