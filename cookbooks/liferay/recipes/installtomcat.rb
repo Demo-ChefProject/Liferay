@@ -106,7 +106,7 @@ powershell_script 'delete if tomcat service exist' do
    code <<-EOH
     $Service = Get-Service -Name Apache-Tomcat-MC3 -ErrorAction SilentlyContinue
      if (! $Service) {
-          .\service.bat uninstall Apache Tomcat MC3 
+          Invoke-Expression "cmd /c C:/NC4/MC3/tomcat/bin/service.bat uninstall Apache Tomcat MC3" 
      }
   EOH
   #notifies :run, 'execute[install Tomcat Service]', :immediately
