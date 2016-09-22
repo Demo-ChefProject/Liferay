@@ -86,7 +86,7 @@ echo "Yippee, pswd comp exists"
 Write-Host "Yippee, pswd comp exists"
 }
 ELSE {
-add-content C:\\NC4\\MC3\\portal-ext.properties "`n passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz `n line two"
+add-content C:\\NC4\\MC3\\portal-ext.properties "`npasswords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz `rline two"
 echo "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz"
 }
 EOH
