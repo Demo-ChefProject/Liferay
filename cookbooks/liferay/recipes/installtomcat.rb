@@ -114,7 +114,7 @@ end
 
 powershell_script 'install Tomcat Service' do
   code <<-EOH
-     $Service = Get-Service -Name Apache-Tomcat-hahaMC3 -ErrorAction SilentlyContinue
+     $Service = Get-Service -Name Apache-Tomcat-KrithiMC3 -ErrorAction SilentlyContinue
      if (! $Service) {
            Invoke-Expression "cmd /c C:/NC4/MC3/tomcat/bin/service.bat install hahaMC3" 
      }
