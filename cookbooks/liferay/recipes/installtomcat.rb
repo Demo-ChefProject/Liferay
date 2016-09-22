@@ -1,5 +1,3 @@
-#Changes made in portal-exe.properties
-
 liferay_install_loc = node['nc4']['liferay']['install_location']
 liferay_work_dir = "#{liferay_install_loc}/MC3"
 liferay_tomcat_dir = "#{liferay_work_dir}/tomcat/conf"  
@@ -44,32 +42,7 @@ template "#{liferay_work_dir}/portal-ext.properties" do
     })
   action :create
 end
-=begin
-#check if password complexity exists
-powershell_script 'check if password complexity exists1' do
-  guard_interpreter :powershell_script
-  code <<-EOH
-$line1 = "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz"
-$line2 = "passwords.passwordpolicytoolkit.charset.numbers=0123456789"
-$line3 = "passwords.passwordpolicytoolkit.charset.symbols=_.!@$*=-?"
-$line4 = "passwords.passwordpolicytoolkit.charset.uppercase=ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-$successmsg = 'Password complexity exits'
-If ($line1  -eq "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz" -AND $line2 -eq "passwords.passwordpolicytoolkit.charset.numbers=0123456789" -AND $line3 -eq "passwords.passwordpolicytoolkit.charset.symbols=_.!@$*=-?" -AND $line4 -eq "passwords.passwordpolicytoolkit.charset.uppercase=ABCDEFGHIJKLMNOPQRSTUVWXYZ")
- 
-{
-  Write-Host "successmsg: $successmsg"
-  }
-  ELSE
-{
- Write-Host $line1
- Write-Host $line2
- Write-Host $line3
- Write-Host $line4
-  }
-EOH
-#notifies :run, 'powershell_script[Delete Tomcat Service if exists]', :immediately
-end
-=end
+
 
 powershell_script 'check if password complexity exists' do
   guard_interpreter :powershell_script
