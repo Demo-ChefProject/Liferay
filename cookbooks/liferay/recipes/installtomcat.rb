@@ -80,12 +80,12 @@ $TSProfile_exist = test-path "C:\\NC4\\MC3\\portal-ext.properties"
 $filepath = Get-Content C:\\NC4\\MC3\\portal-ext.properties 
 Compare-Object filepath$ line1$
 
-If ($filepath -match "24fsf24")
+If ($filepath -match "passwords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz" -AND $filepath -match "passwords.passwordpolicytoolkit.charset.numbers=0123456789" -AND $filepath -match "passwords.passwordpolicytoolkit.charset.symbols=_.!@$*=-?" -AND $filepath -match "passwords.passwordpolicytoolkit.charset.uppercase=ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 {
-echo "Yippee, pswd comp exists"
 Write-Host "Yippee, pswd comp exists"
 }
 ELSE {
+add-content C:\\NC4\\MC3\\portal-ext.properties "`n##Password Complexity change Demo 303149"
 add-content C:\\NC4\\MC3\\portal-ext.properties "`npasswords.passwordpolicytoolkit.charset.lowercase=abcdefghijklmnopqrstuvwxyz"
 add-content C:\\NC4\\MC3\\portal-ext.properties "`npasswords.passwordpolicytoolkit.charset.numbers=0123456789"
 add-content C:\\NC4\\MC3\\portal-ext.properties "`npasswords.passwordpolicytoolkit.charset.symbols=_.!@$*=-?"
