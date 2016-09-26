@@ -1,7 +1,7 @@
 liferay_install_loc = node['nc4']['liferay']['install_location']
 liferay_work_dir = "#{liferay_install_loc}/MC3"
 liferay_tomcat_dir = "#{liferay_work_dir}/tomcat/conf"  
-
+liferay_catalina_dir = "#{liferay_tomcat_dir}/Catalina/localhost"
 
 liferay_max_size = node['nc4']['max_size']
 liferay_ip_home = node['nc4']['ip_home']
@@ -49,6 +49,15 @@ template "#{liferay_tomcat_dir}/context.xml" do
   variables({
     :jdbc_url => liferay_jdbc_url,
     :work_dir => liferay_tomcat_dir
+    })
+  action :create
+end
+
+template "#{liferay_catalina_dir}/ROOT.xml" do
+  source 'ROOT.xml.erb'
+  variables({
+    :rootjdbc_url => liferay_rootjdbc_url,
+    :work_dir => liferay_catalina_dir
     })
   action :create
 end
