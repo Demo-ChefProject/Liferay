@@ -18,6 +18,7 @@ liferay_rsa_domain = node['nc4']['rsa_domain']
 liferay_rsa_pin_type = node['nc4']['rsa_pin_type']
 liferay_rsa_twofactor_mode = node['nc4']['rsa_twofactor_mode']
 liferay_rsa_twofactor_enabled = node['nc4']['rsa_twofactor_enabled']
+liferay_jdbc_url = node['nc4']['jdbc_url']
 
 
 template "#{liferay_work_dir}/portal-ext.properties" do
@@ -43,6 +44,14 @@ template "#{liferay_work_dir}/portal-ext.properties" do
   action :create
 end
 
+template "#{liferay_tomcat_dir}/portal-ext.properties" do
+  source 'context.xml.prod.erb'
+  variables({
+    :max_size => liferay_jdbc_url,
+    :work_dir => liferay_tomcat_dir
+    })
+  action :create
+end
 
 powershell_script 'check if password complexity exists' do
   guard_interpreter :powershell_script
