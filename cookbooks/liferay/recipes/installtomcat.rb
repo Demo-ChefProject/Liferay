@@ -19,6 +19,7 @@ liferay_rsa_pin_type = node['nc4']['rsa_pin_type']
 liferay_rsa_twofactor_mode = node['nc4']['rsa_twofactor_mode']
 liferay_rsa_twofactor_enabled = node['nc4']['rsa_twofactor_enabled']
 liferay_jdbc_url = node['nc4']['jdbc_url']
+liferay_rootjdbc_url = node['nc4']['rootjdbc_url']
 
 
 template "#{liferay_work_dir}/portal-ext.properties" do
