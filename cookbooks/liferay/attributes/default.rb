@@ -20,3 +20,5 @@ default['nc4']['rsa_pin_type']= "0"
 default['nc4']['rsa_twofactor_mode']= "1"
 default['nc4']['rsa_twofactor_enabled']= "false"
 
+default['nc4']['jdbc_url'] = "1531"
+
