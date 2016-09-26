@@ -45,11 +45,8 @@ template "#{liferay_work_dir}/portal-ext.properties" do
 end
 
 template "#{liferay_tomcat_dir}/context.xml" do
-  source 'context.xml.prod.erb'
-  variables({
-    :max_size => liferay_jdbc_url,
-    :work_dir => liferay_tomcat_dir
-    })
+  source 'context.xml.erb'
+  variables( :max_size => liferay_jdbc_url )
   action :create
 end
 
