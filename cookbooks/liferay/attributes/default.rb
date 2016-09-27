@@ -6,7 +6,7 @@ default['nc4']['liferay1']['version']="repository/Liferay"
 
 default['nc4']['max_size'] = "-1"
 default['nc4']['ip_home'] = "127.0.0.1"
-default['nc4']['ip_internal'] = "10.40.2.187"
+default['nc4']['ip_internal'] = "10.10.40.32"
 default['nc4']['session_timeout'] = "20"
 default['nc4']['comp_name'] = "Mission Center Customer Name"
 default['nc4']['comp_url'] = "/group/guest/home"
